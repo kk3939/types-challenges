@@ -1,8 +1,9 @@
 {
-  "name": "boilerplate-ts",
+  "name": "types-challenges",
+  "private": true,
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:kk3939/boilerplate-ts.git",
+  "repository": "git@github.com:kk3939/types-challenges.git",
   "author": "kk3939 <kyo51310@gmail.com>",
   "license": "MIT",
   "scripts": {
