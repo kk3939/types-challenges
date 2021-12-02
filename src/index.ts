@@ -1,6 +1,14 @@
 // 実行ファイル
 // 回答したらcommit
 
-type Result = Unshift<[1, 2], 0>; // [0, 1, 2,]
+type Params<T extends (...args: any) => any> = T extends (
+  ...args: infer U
+) => any
+  ? U
+  : never;
 
-type Unshift<T extends unknown[], U> = [U, ...T];
+const returnNumber = (num: number): number => {
+  return num;
+};
+
+// const nextReturnNumber = () => {};

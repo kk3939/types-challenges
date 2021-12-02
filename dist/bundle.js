@@ -16,7 +16,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n// 実行ファイル\n// 回答したらcommit\nconst array1 = [1, 2, 3];\nconst array2 = [4, 5];\nconst array3 = array1.concat(array2);\nconsole.log(array3);\n\n\n//# sourceURL=webpack://types-challenges/./src/index.ts?");
+eval("\n// 実行ファイル\n// 回答したらcommit\nconst returnNumber = (num) => {\n    return num;\n};\nconst x = returnNumber(2);\nconsole.log(x);\n\n\n//# sourceURL=webpack://types-challenges/./src/index.ts?");
 
 /***/ })
 
