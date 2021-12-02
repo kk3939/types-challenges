@@ -1,6 +1,6 @@
 // 実行ファイル
 // 回答したらcommit
 
-type Result = Push<[1, 2], "3">;
+type Result = Unshift<[1, 2], 0>; // [0, 1, 2,]
 
-type Push<T extends unknown[], U> = [...T, U];
+type Unshift<T extends unknown[], U> = [U, ...T];
