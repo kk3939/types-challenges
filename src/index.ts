@@ -1,6 +1,17 @@
 // 実行ファイル
 // 回答したらcommit
 
-type HandmadeExclude<T, K> = T extends K ? never : T;
-const value: HandmadeExclude<"a" | "b" | "c", "a" | "c"> = "b";
-console.log(value);
+type Awaited<T> = T extends Promise<infer U> ? U : never;
+
+const returnNumber = (): Promise<number> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(1);
+    }, 1000);
+  });
+};
+
+const main = async () => {
+  const x: Awaited<Promise<number>> = await returnNumber();
+  console.log(x);
+};
