@@ -1,6 +1,6 @@
 // 実行ファイル
 // 回答したらcommit
 
-type Includes<T extends unknown[], K> = K extends T[number] ? true : false;
-type isPillarMen = Includes<["Kars", "Esidisi", "Wamuu", "Santana"], "Dio">;
-// expected to be `false`
+type Result = Push<[1, 2], "3">;
+
+type Push<T extends unknown[], U> = [...T, U];
