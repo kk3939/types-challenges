@@ -1,17 +1,8 @@
 // 実行ファイル
 // 回答したらcommit
 
-type Awaited<T> = T extends Promise<infer U> ? U : never;
+type If<C extends true | false, T, F> = C extends true ? T : F;
 
-const returnNumber = (): Promise<number> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(1);
-    }, 1000);
-  });
-};
+const value: If<true, "a", "b"> = "a";
 
-const main = async () => {
-  const x: Awaited<Promise<number>> = await returnNumber();
-  console.log(x);
-};
+console.log(typeof value);
