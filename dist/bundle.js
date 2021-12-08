@@ -16,7 +16,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\nconst text = \"Hello, world\";\nconsole.log(text);\n\n\n//# sourceURL=webpack://boilerplate-ts/./src/index.ts?");
+eval("\n// 実行ファイル\n// 回答したらcommit\nconst returnNumber = (num) => {\n    return num;\n};\nconst x = returnNumber(2);\nconsole.log(x);\n\n\n//# sourceURL=webpack://types-challenges/./src/index.ts?");
 
 /***/ })
 
