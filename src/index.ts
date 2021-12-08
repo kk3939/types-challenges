@@ -1,14 +1,18 @@
 // 実行ファイル
 // 回答したらcommit
-const fn = (v: boolean) => {
-  if (v) return 1;
-  else return 2;
+
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+
+type MyOmit<T, K> = {
+  [P in Exclude<keyof T, K>]: T[P];
 };
 
-type MyReturnType<T extends (...args: any[]) => unknown> = T extends (
-  ...args: any[]
-) => infer U
-  ? U
-  : never;
+type TodoPreview = MyOmit<Todo, "description" | "title">;
 
-type a = MyReturnType<typeof fn>; // should be "1 | 2"
+const todo: TodoPreview = {
+  completed: false,
+};
