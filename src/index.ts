@@ -1,8 +1,28 @@
 // 実行ファイル
 // 回答したらcommit
+declare const config: Chainable;
 
-type Arr = ["1", "2", "3"];
+type Chainable<T = object> = {
+  option<K extends string, V>(
+    key: K,
+    value: V
+  ): Chainable<T & { [key in K]: V }>;
+  get(): T;
+};
 
-type TupleToUnion<T extends any[]> = T[number];
+const result = config
+  .option("foo", 123)
+  .option("name", "type-challenges")
+  .option("bar", { value: "Hello World" })
+  .get();
 
-type Test = TupleToUnion<Arr>; // expected to be '1' | '2' | '3'
+// expect the type of result to be:
+interface Result {
+  foo: number;
+  name: string;
+  bar: {
+    value: string;
+  };
+}
+
+const hoge = config.option("a", "a").option("b", "b").get();
