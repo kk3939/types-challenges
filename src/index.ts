@@ -1,28 +1,7 @@
-// 実行ファイル
-// 回答したらcommit
-declare const config: Chainable;
+type arr1 = ["a", "b", "c"];
+type arr2 = [3, 2, 1];
 
-type Chainable<T = object> = {
-  option<K extends string, V>(
-    key: K,
-    value: V
-  ): Chainable<T & { [key in K]: V }>;
-  get(): T;
-};
+type Last<T extends unknown[]> = T extends [...unknown[], infer L] ? L : never;
 
-const result = config
-  .option("foo", 123)
-  .option("name", "type-challenges")
-  .option("bar", { value: "Hello World" })
-  .get();
-
-// expect the type of result to be:
-interface Result {
-  foo: number;
-  name: string;
-  bar: {
-    value: string;
-  };
-}
-
-const hoge = config.option("a", "a").option("b", "b").get();
+type tail1 = Last<arr1>; // expected to be 'c'
+type tail2 = Last<arr2>; // expected to be 1
