@@ -1,41 +1,8 @@
 // 実行ファイル
 // 回答したらcommit
-type X = {
-  x: {
-    a: 1;
-    b: "hi";
-  };
-  y: "hey";
-};
 
-type DeepReadonly<T> = {
-  readonly [key in keyof T]: T[key] extends object
-    ? DeepReadonly<T[key]>
-    : T[key];
-};
+type Arr = ["1", "2", "3"];
 
-type Todo = DeepReadonly<X>; // should be same as `Expected`
+type TupleToUnion<T extends any[]> = T[number];
 
-type Expected = {
-  readonly x: {
-    readonly a: 1;
-    readonly b: "hi";
-  };
-  readonly y: "hey";
-};
-
-const obj: Todo = {
-  x: {
-    a: 1,
-    b: "hi",
-  },
-  y: "hey",
-};
-
-const obj2: Expected = {
-  x: {
-    a: 1,
-    b: "hi",
-  },
-  y: "hey",
-};
+type Test = TupleToUnion<Arr>; // expected to be '1' | '2' | '3'
